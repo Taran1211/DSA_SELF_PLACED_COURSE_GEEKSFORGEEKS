@@ -1,0 +1,28 @@
+public static boolean isRotated(String str1, String str2)
+    {
+     String a= rotateanticlockwise(str2);
+      String b=rotateclockwise(str2);
+      if(str1.equals(a))
+      return true;
+      else if(str1.equals(b))
+      return true;
+      else
+      return false;
+    }
+    public static String rotateanticlockwise(String str)
+    {
+    String x=str.substring(0,str.length()-2);
+    String y=str.substring(str.length()-2,str.length());
+    return y+x;
+    
+    }
+      public static String rotateclockwise(String str)
+    {
+    String x=str.substring(0,2);
+    String y=str.substring(2,str.length());
+    return y+x;
+    
+    }
+    
+    
+}
