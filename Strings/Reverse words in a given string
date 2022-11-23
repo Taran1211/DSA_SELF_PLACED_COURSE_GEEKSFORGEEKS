@@ -1,0 +1,25 @@
+class Solution 
+{
+    //Function to reverse words in a given string.
+    String reverseWords(String s)
+    {
+        String k="";
+     int n=s.length();
+     int i=0;
+     int j=0;
+     while(i<n)
+     {
+     while(i<n && (s.charAt(i)!='.'||s.charAt(i)==' '))
+     i++;
+     if(i>n)
+     break;
+     String word=s.substring(j,i);
+     j=i+1;
+     k=word+'.'+k;
+     i=i+1;
+    }
+    int t=k.length();
+    String l=k.substring(0,t-1);
+    return l;// code here 
+    }
+}
