@@ -1,0 +1,25 @@
+class Solution
+{
+    ArrayList<Integer> countDistinct(int arr[], int n, int k)
+    {
+    ArrayList<Integer>li=new ArrayList<>();
+    HashMap<Integer,Integer>hm=new HashMap<>();
+    int i=0;
+    int j=0;
+    while(j<n)
+    {
+    hm.put(arr[j],hm.getOrDefault(arr[j],0)+1);
+    if(k==(j-i+1))
+    {
+    int size=hm.size();
+    li.add(size);
+    hm.put(arr[i],hm.get(arr[i])-1);
+    if(hm.get(arr[i])==0)
+    hm.remove(arr[i]);
+    i++;
+    }
+    j++;
+    }
+    return li;
+    }
+    }
