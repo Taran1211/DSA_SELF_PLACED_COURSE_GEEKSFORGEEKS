@@ -1,0 +1,41 @@
+class Solution {
+
+
+    int search(String pat, String txt) {
+    int i=0;
+     int j=0;
+     int k=pat.length();
+     int n=txt.length();
+     int count=0;
+     HashMap<Character,Integer>hm=new HashMap<>();
+     HashMap<Character,Integer>pattern=new HashMap<>();
+     for( i=0;i<pat.length();i++)
+     {
+        char ch=pat.charAt(i);
+        pattern.put(ch,pattern.getOrDefault(ch,0)+1);
+     }
+      i=0;
+     while(j<n)
+     {
+     char ch=txt.charAt(j);
+     hm.put(ch,hm.getOrDefault(ch,0)+1);
+     if(j-i+1<k)
+     {
+     j++;
+     }
+     else
+     {
+     if(pattern.equals(hm)==true)
+     count++;
+     ch=txt.charAt(i);
+     if(hm.get(ch)==1)
+     hm.remove(ch);
+     else
+     hm.put(ch,hm.get(ch)-1);
+     i++;
+     j++;
+     }
+     }
+     return count;
+    }
+}
